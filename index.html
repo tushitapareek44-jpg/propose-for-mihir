@@ -56,7 +56,7 @@ body::before{
     padding:40px;
     border-radius:25px;
     box-shadow:0 0 25px rgba(255,105,180,0.25);
-    max-width:420px;
+    max-width:450px;
     animation: fadeIn 1.2s ease;
 }
 
@@ -97,7 +97,7 @@ button{
     transition:0.3s;
 }
 
-/* YES button normal */
+/* YES button */
 .yes-btn:hover{
     transform:scale(1.05);
     box-shadow:0 0 10px rgba(255,79,139,0.4);
@@ -109,13 +109,13 @@ button{
     transition:0.2s;
 }
 
-/* layout */
+/* button container */
 .options{
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     margin-top:20px;
     position:relative;
-    height:80px;
+    height:120px;
 }
 
 /* pulse heart */
@@ -129,7 +129,6 @@ button{
     50%{transform:scale(1.1);}
     100%{transform:scale(1);}
 }
-
 </style>
 </head>
 
@@ -149,17 +148,28 @@ button{
 <!-- PAGE 2 -->
 <div class="screen" id="page2">
 <h1>so… here’s the thing</h1>
-<p>I kept thinking about today, about words, about feelings…</p>
-<p class="sub">and honestly, this felt right.</p>
+
+<p>
+I’m really sorry I hurt you. I love you… a lotzzz, and I always will.  
+Of course I want to spend every Valentine’s with you.  
+Actually… I want all the Febs of my life with you — and obviously, the rest of the months too.  
+I just want to see that smile back on your face, because that’s my favorite thing in the world.
+</p>
 
 <h3 style="color:#ff4f8b;">Mihir… will you be my special person? 💞</h3>
 
-<div class="options">
-<button class="yes-btn" onclick="showPage(3)">yes, obviously</button>
+<div class="options" 
+style="display:flex; flex-direction:column; align-items:center; gap:15px; position:relative;">
+
+<button class="yes-btn" onclick="showPage(3)"
+style="width:220px; font-size:18px; font-weight:600;">
+YES 💗
+</button>
 
 <button class="no-btn" id="noBtn"
     onmouseover="runAway()"
-    onclick="runAway()">
+    onclick="runAway()"
+    style="position:absolute;">
     umm… no?
 </button>
 </div>
@@ -197,8 +207,8 @@ setTimeout(()=>heart.remove(),7000);
 // CHAOTIC NO BUTTON
 function runAway(){
 const btn = document.getElementById("noBtn");
+const container = document.querySelector(".options");
 
-const container = document.querySelector(".container");
 const maxX = container.offsetWidth - 120;
 const maxY = container.offsetHeight - 60;
 
