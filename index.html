@@ -93,7 +93,7 @@ button{
     border-radius:30px;
     font-size:16px;
     cursor:pointer;
-    margin-top:15px;
+    margin-top:10px;
     transition:0.3s;
 }
 
@@ -109,13 +109,15 @@ button{
     transition:0.2s;
 }
 
-/* button container */
+/* button container — THIS is the key fix */
 .options{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
     margin-top:20px;
     position:relative;
-    height:120px;
+    min-height:140px;
 }
 
 /* pulse heart */
@@ -158,8 +160,7 @@ I just want to see that smile back on your face, because that’s my favorite th
 
 <h3 style="color:#ff4f8b;">Mihir… will you be my special person? 💞</h3>
 
-<div class="options" 
-style="display:flex; flex-direction:column; align-items:center; gap:15px; position:relative;">
+<div class="options">
 
 <button class="yes-btn" onclick="showPage(3)"
 style="width:220px; font-size:18px; font-weight:600;">
@@ -168,10 +169,10 @@ YES 💗
 
 <button class="no-btn" id="noBtn"
     onmouseover="runAway()"
-    onclick="runAway()"
-    style="position:absolute;">
+    onclick="runAway()">
     umm… no?
 </button>
+
 </div>
 </div>
 
@@ -204,13 +205,13 @@ document.getElementById('hearts').appendChild(heart);
 setTimeout(()=>heart.remove(),7000);
 },700);
 
-// CHAOTIC NO BUTTON
+// CHAOTIC NO BUTTON (runs inside the options box)
 function runAway(){
 const btn = document.getElementById("noBtn");
 const container = document.querySelector(".options");
 
-const maxX = container.offsetWidth - 120;
-const maxY = container.offsetHeight - 60;
+const maxX = container.offsetWidth - 140;
+const maxY = container.offsetHeight - 70;
 
 const x = Math.random() * maxX;
 const y = Math.random() * maxY;
